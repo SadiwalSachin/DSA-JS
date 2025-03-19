@@ -1,5 +1,5 @@
 let arr1 = [-1,0,3,4,5,9,12] // even array
-const target1 = 50
+const target1 = 5
 
 let arr2 = [-1,0,3,4,9,12] // odd array
 const target2 = 12
@@ -21,8 +21,6 @@ function binarySearch(array,target){
     return -1
 }
 
-// console.log(binarySearch(arr2,target2))
+console.log(binarySearch(arr1,target1))
 // console.log(binarySearch(arr1,target1))
 // console.log(5/2);
-
-console.log(findFirstAndLastOccurence(arr,target))
