@@ -66,17 +66,56 @@
 
 
 let array = [3,-4,5,4,-1,7,-8]
-let summationArray = []
+// let summationArray = []
+// let maxSum = Number.NEGATIVE_INFINITY
+// for(let start = 0 ; start<array.length;start++){
+//     let currentSum = 0
+//     for(let end = start;end<array.length;end++){
+//         currentSum += array[end]
+//         if(currentSum>maxSum){
+//             maxSum=currentSum
+//         }
+//     }
+// }
+
+// console.log("The max sum of an subarray from the given array is :-",maxSum);
+
+
+
+
+
+
+// to print all the sub arrary
+
+// for(let i=0;i<array.length;i++){ // this gives starting position to us
+//     for(let j = i;j<array.length;j++){ // ye saare sub-array dega
+//         console.log(`Sub-array start with starting indesx ${i} and end with ending index ${j}`);
+//         for(let start = i ;start<=j;start++){
+//             console.log(array[start]);
+//             console.log(" ");
+//         }
+//     }
+// }
+
+let currentSum = 0
 let maxSum = Number.NEGATIVE_INFINITY
-for(let start = 0 ; start<array.length;start++){
-    let currentSum = 0
-    for(let end = start;end<array.length;end++){
-        currentSum += array[end]
-        if(currentSum>maxSum){
-            maxSum=currentSum
-        }
+
+for(let i=0;i<array.length;i++){ // this gives starting position to us
+    currentSum += array[i]
+    if(currentSum>maxSum){
+        maxSum = currentSum
     }
+    if(currentSum<0){
+        currentSum=0
+    }
+
+    
 }
 
-console.log("The max sum of an subarray from the given array is :-",maxSum);
+console.log(`From the most optimized approach which is kadane's you get the answer that maximum sum is ${maxSum}`);
+
+
+
+
+
 

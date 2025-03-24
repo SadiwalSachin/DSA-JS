@@ -29,16 +29,33 @@ let currentSum;
 
 // TWO POINTER APPROACH 
 
-let i = 0 ; 
-let j = data.length - 1;
+// let i = 0 ; 
+// let j = data.length - 1;
 
-while(i<j){
-    if( data[i] + data[j] > neededSum){
-        j--
-    } else if( data[i] + data[j] < neededSum){
-        i++
+// while(i<j){
+//     if( data[i] + data[j] > neededSum){
+//         j--
+//     } else if( data[i] + data[j] < neededSum){
+//         i++
+//     } else {
+//         console.log(`Pair finded ${i} , ${j}`);
+//         return 
+//     }
+// }
+
+
+// TWO POINTER APPROACH
+
+let start = 0
+let end = data.length-1
+
+while(start<end){
+    currentSum = data[start] + data[end]
+    if(currentSum>neededSum){
+        end--
+    } else if(currentSum<neededSum){
+        start++
     } else {
-        console.log(`Pair finded ${i} , ${j}`);
-        return 
+        console.log(start,end);
     }
 }
