@@ -11,7 +11,7 @@ function findPeakIndexInMountainArray(arr){
         if(arr[mid-1]<arr[mid]){
             start = mid+1
         }else{
-            end = mid -1f
+            end = mid -1
         }
     }
 }
