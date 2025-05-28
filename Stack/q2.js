@@ -1,3 +1,5 @@
+// Stock span
+
 let stocks = [100,80,60,70,60,75,85]
 
 let ans = []

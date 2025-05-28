@@ -1,0 +1,10 @@
+Linked list is linear data structure
+
+
+
+
+Singly Linked list
+Each node is an object
+when single node is there then head and tail points to the same node
+
+Linked list me values tail ki side se add hogi or new node bhi 
