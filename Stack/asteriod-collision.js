@@ -1,17 +1,35 @@
-let astreiods = [2,3,4,-5,10,-20]
+let astreiods = [2,-2]
 
-function getMax(num1 , num2){
-   return Math.abs(num1) > Math.abs(num2) ? num1 : num2
-}
+console.log(Math.abs(-2));
 
-function ANS(arr){
-    let ansStack =[]
 
-    for(let i = arr.length -1 ;i>=0 ;i--){
-        let top = arr[i-1] * arr[i]
-        if(top<0){
-            let max = getMax(arr[i],arr[i-1])
-            ansStack.push(max)
+function astreiodCollision(arr){
+    let j = 1
+    let ans = []
+    for(let i=0;i<arr.length;i++){
+        let num1 = arr[i]
+        let num2 = arr[j]
+        if((num1*num2) <0){
+            let abs1 = Math.abs(num1)
+            let abs2 = Math.abs(num2)
+            let max = Math.max(abs1,abs2)
+            if(max==Math.abs(abs1)) {
+                ans[i] = abs1
+            } else {
+                ans[i] = abs2
+            }
+            j++
+        }else if(Math.abs(num1)==Math.abs(num2)){
+            ans = [ ]
+            j++
+        }
+        else{
+            ans[i] = arr[i]
+            j++
         }
     }
+
+    return ans
 }
+
+console.log(astreiodCollision(astreiods));
