@@ -82,16 +82,78 @@ class List {
     printLinkedList(){
         let tempNode = this.head
         while(tempNode!= null){
-            console.log(tempNode);
-            console.log("\n");
+            console.log(tempNode.val);
             tempNode = tempNode.next
         }
     }
 }
 
 const list = new List()
+list.pushFront(5)
+list.pushFront(4)
 list.pushFront(3)
 list.pushFront(2)
 list.pushFront(1)
-list.insertInMiddle(5,0)
-console.log(list);
+// console.log(list.printLinkedList());
+
+
+
+// Deleting a node from linked list 
+
+function deleteNode(list,index){
+    let counter = 1
+    let tempNode = list.head
+    
+    while(counter<index){
+        tempNode = tempNode.next
+        counter++
+    }
+    console.log(tempNode.val);
+    
+    tempNode.next = tempNode.next.next
+}
+
+// deleteNode(list,2)
+
+// list.printLinkedList()
+
+
+// Detect loop in the linked list
+
+function detectCycle(list){
+    let slow = list.head
+    let fast = list.head
+
+    while(fast=null && fast.next!=null){
+        slow = slow.next
+        fast = fast.next.next
+
+        if(slow==fast){
+            return true
+        }
+    }
+
+    return false
+}
+
+// console.log(detectCycle(list));
+
+
+function detectPalindrone(head){
+    let tempNode = head
+    let stack = []
+
+    
+
+    while(tempNode!==null){
+        if(tempNode.val!=stack[stack.length-1]){
+            stack.push(tempNode.val)
+        } else if(tempNode.val==stack[stack.length-1]){
+            stack.pop()
+        }
+    }
+
+    return stack.length==0 ? true : false
+}
+
+detectPalindrone(list.head)
