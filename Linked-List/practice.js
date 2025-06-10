@@ -89,12 +89,54 @@ class List {
 }
 
 const list = new List()
+list.pushFront(6)
 list.pushFront(5)
 list.pushFront(4)
 list.pushFront(3)
 list.pushFront(2)
 list.pushFront(1)
 // console.log(list.printLinkedList());
+
+// find middle of the linked list
+
+function getMiddleOfLL(head){
+    let slow = head
+    let fast = head
+    while(fast!==null && fast.next!==null){
+        slow = slow.next
+        fast = fast.next.next
+    }
+
+    return slow.val
+}
+
+// list.printLinkedList()
+
+// console.log(getMiddleOfLL(list.head));
+
+// reverse linked list
+
+function reverseLinkedList(head){
+    let prev = null
+    let curr = head
+    let next = null
+
+    while(curr!=null){
+        next = curr.next // preserve the ll
+        curr.next = prev // reverse the connection
+        prev = curr // updating the connection
+        curr = next
+    }
+
+    return prev
+}
+
+console.log(list.head);
+
+list.head = reverseLinkedList(list.head)
+
+console.log(list.head);
+
 
 
 
@@ -156,4 +198,4 @@ function detectPalindrone(head){
     return stack.length==0 ? true : false
 }
 
-detectPalindrone(list.head)
+// detectPalindrone(list.head)
