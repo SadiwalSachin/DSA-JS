@@ -1,35 +1,33 @@
-let astreiods = [2,-2]
+let astreiods = [5,10,-5]
 
 console.log(Math.abs(-2));
 
+function astreiodCollision(astreiods){
+    let stack = []
+    for(let i=0;i<astreiods.length;i++){
+        let current = astreiods[i]
 
-function astreiodCollision(arr){
-    let j = 1
-    let ans = []
-    for(let i=0;i<arr.length;i++){
-        let num1 = arr[i]
-        let num2 = arr[j]
-        if((num1*num2) <0){
-            let abs1 = Math.abs(num1)
-            let abs2 = Math.abs(num2)
-            let max = Math.max(abs1,abs2)
-            if(max==Math.abs(abs1)) {
-                ans[i] = abs1
+        while(stack.length>0 && stack[stack.length-1]>0 && current<0){
+            if(Math.abs(stack[stack.length-1]) < Math.abs(current)){
+                stack.pop()
+                continue
+            } else if(Math.abs(current) == Math.abs(stack[stack.length-1])){
+                stack.pop()
+                current = 0
+                break
             } else {
-                ans[i] = abs2
+                current = 0
+                break
             }
-            j++
-        }else if(Math.abs(num1)==Math.abs(num2)){
-            ans = [ ]
-            j++
         }
-        else{
-            ans[i] = arr[i]
-            j++
+
+        if(current!=0){
+            stack.push(current)
         }
+
     }
 
-    return ans
+    return stack
 }
 
 console.log(astreiodCollision(astreiods));
