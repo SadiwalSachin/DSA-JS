@@ -16,7 +16,7 @@ function buildTree(preOrder){
     return root
 }
 
-const preOrder = [1,2,-1,-1,3,4,-1,-1,5,-1,-1]
+const preOrder = [1,2,-1,-1,16,6,-1,-1,10,-1,-1]
 
 let root = buildTree(preOrder)
 
@@ -24,11 +24,11 @@ function preOrderTraversal(root){
     if(root?.data==null) return
 
     console.log(root?.data + " ");
-    preOrderTraversal(root?.left)
+    preOrderTraversal(root?.left) 
     preOrderTraversal(root?.right)
 }
 
-preOrderTraversal(root)
+// preOrderTraversal(root)
 
 function inOrderTraversal(root){
     if(root==null) return
@@ -46,7 +46,7 @@ function height(root){
     return Math.max(leftHT,rightHT) + 1
 }
 
-console.log("Height of the tree is :   ",height(root));
+// console.log("Height of the tree is :   ",height(root));
 
 function calulcateNode(root){
     if(root == null) return 0;
@@ -55,7 +55,7 @@ function calulcateNode(root){
     return  (leftCount + rightCount + 1)
 }
 
-console.log("Total Nodes of the tree is :   ",calulcateNode(root));
+// console.log("Total Nodes of the tree is :   ",calulcateNode(root));
 
 function calculateSumOfNodes(root){
     if(root==null) return 0;
@@ -64,4 +64,33 @@ function calculateSumOfNodes(root){
     return leftSum + rightSum + root.data
 }
 
-console.log("The sum of all nodes is :",calculateSumOfNodes(root))
+// console.log("The sum of all nodes is :",calculateSumOfNodes(root))
+
+function maximumNodeinTree(root){
+    if(root==null) return 0
+
+    let leftNode = maximumNodeinTree(root.left)
+    let rightNode = maximumNodeinTree(root.right)
+
+    return Math.max(root.data , leftNode ,rightNode)
+}
+
+// console.log("the max node in tree is :",maximumNodeinTree(root));
+
+
+function printLeafNode(root){
+    if(root==null){
+        return true
+    }
+
+    let leftNode = printLeafNode(root.left)
+    let rightNode = printLeafNode(root.right)
+
+    if(leftNode&&rightNode){
+        console.log(root.data);
+    }
+
+    return
+}
+
+console.log("The leaf node of the trees are :",printLeafNode(root));
