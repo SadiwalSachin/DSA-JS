@@ -25,7 +25,7 @@ function buildTree(arr){
     arr.forEach(element => {
        root = insertNode(root,element)
     });
-
+    
     return root
 }
 
